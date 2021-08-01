@@ -1,7 +1,5 @@
 name: IvanYa
 env:
-   EB_APPLICATION_NAME       : "myapplication"
-   EB_ENVIRONMENT_NAME       : "Myapplication-env"
    AWS_REGION_NAME           : "us-west-2"
    
 on:
