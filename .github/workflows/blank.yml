@@ -1,0 +1,28 @@
+name: IvanYa
+env:
+   EB_APPLICATION_NAME       : "myapplication"
+   EB_ENVIRONMENT_NAME       : "Myapplication-env"
+   AWS_REGION_NAME           : "us-west-2"
+   
+on:
+  push:
+    branches: [main]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Clone rep
+        uses: actions/checkout@v1
+
+        
+      - name: my aws credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id      : ${{ secrets.MY_AWS_KEY }}
+          aws-secret-access-key  : ${{ secrets.MY_AWS_KEY2 }}
+          aws-region             : ${{ env.AWS_REGION_NAME }}     
+      - name: win
+        run : aws s3 sync ./out s3://backkkk2
+        
