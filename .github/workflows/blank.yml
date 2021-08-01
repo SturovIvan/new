@@ -24,4 +24,3 @@ jobs:
       
       - name: win
         run : aws s3 sync ./out s3://backkkk2
-        
