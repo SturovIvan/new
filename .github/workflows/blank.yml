@@ -14,13 +14,13 @@ jobs:
       - name: Clone rep
         uses: actions/checkout@v1
 
-        
-      - name: my aws credentials
-        uses: aws-actions/configure-aws-credentials@v1
+      - uses: actions/checkout@master
+      - uses: shallwefootball/s3-upload-action@master
+      - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id      : ${{ secrets.MY_AWS_KEY }}
           aws-secret-access-key  : ${{ secrets.MY_AWS_KEY2 }}
           aws-region             : ${{ env.AWS_REGION_NAME }}  
-      
+          source_dir: 'new'
       - name: win
         run : aws s3 sync ./out s3://backkkk2
